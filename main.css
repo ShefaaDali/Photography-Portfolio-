@@ -36,6 +36,12 @@ h3{
   80% {background-image: linear-gradient(to right, var(--bright-green) 80%, var(--light-gray) 20%);}
   100% {background-image: linear-gradient(to right, var(--bright-green) 100%, var(--light-gray) 0%); }
 }
+@keyframes arrow_Animation {
+  0%{transform: translate(0px, 0px);}
+  50%{transform: translate(-10px, 0px) }
+  100%{transform: translate(0px, 0px) }
+
+}
 /*start about section*/
  #HomeText{
   width: 75%;
@@ -85,7 +91,6 @@ h3{
     animation-name: slide-left;
     animation-duration: 0.5s;  
     animation-delay: 0.25s;
-    animation-fill-mode: both;
   }
   
   mark{
@@ -96,6 +101,8 @@ h3{
     line-height: 1;
     border-radius: 5px;
     background-color:var(--bright-green);
+  }
+  mark.animation{
     animation-name: hightlight;
     animation-duration: 1.5s;  
     animation-delay:0.75s;
@@ -109,9 +116,16 @@ h3{
     padding-top: 50px;
     padding-bottom: 100px;
     overflow-x: hidden;
-
-    
   } 
+  .arrow_svg{
+    width: 100%;
+    height: 65px;
+    animation-name: arrow_Animation;
+    animation-duration: 2s;  
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
   .gallery_section h3{
     animation-name: slide-right;
     animation-duration: 2s;  
