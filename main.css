@@ -118,11 +118,14 @@ h3{
     padding-bottom: 100px;
     overflow-x: hidden;
     position: relative;
+  }
+  .gallery_section.animation {
     animation-name: slide-right;
     animation-duration: 1s;  
     animation-fill-mode: both;
     animation-delay: 0.25s;
   } 
+  
   .arrow_svg{
     position: relative;
     width: 100%;
