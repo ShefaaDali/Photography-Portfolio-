@@ -32,30 +32,51 @@ const gallerySection=document.getElementsByClassName("gallery_section")[0];
 const gallery=document.getElementById("gallery");
 
 gallerySection.onmousedown = e =>{
-    gallery.dataset.mouseDownAt=e.clientX;
+    gallery.dataset.eventStartAt=e.clientX;
     console.log("get first value")
 }
 
 gallerySection.onmousemove= e =>{
-    if(gallery.dataset.mouseDownAt === "0") return;
-    const mouseDelta=parseFloat(gallery.dataset.mouseDownAt)-e.clientX;
+    if(gallery.dataset.eventStartAt === "0") return;
+    const mouseDelta=parseFloat(gallery.dataset.eventStartAt)-e.clientX;
     const percentage =(mouseDelta/max)* -100;
     let  nextPercentage = parseFloat(gallery.dataset.prevPercentage)+percentage;
-    if(nextPercentage<-100){
-        nextPercentage= -100;
-    }
-    if(nextPercentage>0){
-        nextPercentage=0;
-    }
+//most add some code to prevent mor scrool
+
     gallery.dataset.percentage=nextPercentage;
     gallery.animate({transform:`translate(${nextPercentage}%,0%)` },{duration:1200,fill:"forwards"}) 
     for(const image of document.querySelectorAll("#gallery img")){
-        image.animate({objectPosition:`${nextPercentage+100}% 50%`},{duration:1200,fill:"forwards"})
+        image.animate({objectPosition:`${(nextPercentage)%100+100}% 50%`},{duration:1200,fill:"forwards"})
     }
     console.log("get second value")
 }
 gallerySection.onmouseup= e =>{
-    gallery.dataset.mouseDownAt="0";
+    gallery.dataset.eventStartAt="0";
     gallery.dataset.prevPercentage=gallery.dataset.percentage;
 }
+gallerySection.ontouchstart = e=>{
+        gallery.dataset.eventStartAt=[...e.changedTouches][0].clientX;
+        console.log([...e.changedTouches])
+        console.log("start");
 
+}
+gallerySection.ontouchmove = e=>{
+    if(gallery.dataset.eventStartAt === "0") return;
+    const mouseDelta=parseFloat(gallery.dataset.eventStartAt)-[...e.changedTouches][0].clientX;
+    console.log([...e.changedTouches][0].clientX,[...e.changedTouches][0])
+    const percentage =(mouseDelta/max)* -100;
+    let  nextPercentage = parseFloat(gallery.dataset.prevPercentage)+percentage;
+//most add some code to prevent mor scrool
+    gallery.dataset.percentage=nextPercentage;
+    gallery.animate({transform:`translate(${nextPercentage}%,0%)` },{duration:1200,fill:"forwards"}) 
+    for(const image of document.querySelectorAll("#gallery img")){
+        image.animate({objectPosition:`${(nextPercentage)%100+100}% 50%`},{duration:1200,fill:"forwards"})
+    }
+    console.log("move");
+
+    }
+gallerySection.ontouchend = e=>{
+    gallery.dataset.eventStartAt="0";
+    gallery.dataset.prevPercentage=gallery.dataset.percentage;
+    console.log("end");
+}
