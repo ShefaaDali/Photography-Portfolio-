@@ -8,11 +8,21 @@ entries.forEach((entry)=>{
         entry.target.classList.remove("animation")
     }
 })
-});
+},{threshold:0.75});
 
+const observer25 =new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        console.log(entry)
+        if(entry.isIntersecting){
+            entry.target.classList.add("animation")
+        }else{
+            entry.target.classList.remove("animation")
+        }
+    })
+    },{threshold:0.25});
  document.querySelectorAll("section").forEach((e)=>observer.observe(e))
  document.querySelectorAll("mark").forEach((e)=>observer.observe(e))
-document.querySelectorAll("#gallery img").forEach((e)=>observer.observe(e))
+document.querySelectorAll("#gallery img").forEach((e)=>observer25.observe(e))
 
 /*Home Section */
 function typingAnimation(text,querySelector,i){
