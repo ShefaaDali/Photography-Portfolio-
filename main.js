@@ -2,7 +2,6 @@
 const observer =new IntersectionObserver((entries)=>{
 entries.forEach((entry)=>{
     console.log(entry)
-    console.log(entry.target)
     if(entry.isIntersecting){
         entry.target.classList.add("animation")
     }else{
@@ -11,8 +10,9 @@ entries.forEach((entry)=>{
 })
 });
 
-document.querySelectorAll(".on_scroll_animation").forEach((e)=>observer.observe(e))
-document.querySelectorAll("mark").forEach((e)=>observer.observe(e))
+ document.querySelectorAll("section").forEach((e)=>observer.observe(e))
+ document.querySelectorAll("mark").forEach((e)=>observer.observe(e))
+document.querySelectorAll("#gallery img").forEach((e)=>observer.observe(e))
 
 /*Home Section */
 function typingAnimation(text,querySelector,i){
@@ -46,7 +46,8 @@ gallerySection.onmousemove= e =>{
     gallery.dataset.percentage=nextPercentage;
     gallery.animate({transform:`translate(${nextPercentage}%,0%)` },{duration:1200,fill:"forwards"}) 
     for(const image of document.querySelectorAll("#gallery img")){
-        image.animate({objectPosition:`${(nextPercentage)%100+100}% 50%`},{duration:1200,fill:"forwards"})
+        image.animate({objectPosition:`${-Math.abs((nextPercentage)%100)+100}% 50%`},{duration:1200,fill:"forwards"})
+        console.log((nextPercentage)%100+100);
     }
     console.log("get second value")
 }
@@ -70,7 +71,7 @@ gallerySection.ontouchmove = e=>{
     gallery.dataset.percentage=nextPercentage;
     gallery.animate({transform:`translate(${nextPercentage}%,0%)` },{duration:1200,fill:"forwards"}) 
     for(const image of document.querySelectorAll("#gallery img")){
-        image.animate({objectPosition:`${(nextPercentage)%100+100}% 50%`},{duration:1200,fill:"forwards"})
+        image.animate({objectPosition:`${-Math.abs((nextPercentage)%100)+100}% 50%`},{duration:1200,fill:"forwards"})
     }
     console.log("move");
 
