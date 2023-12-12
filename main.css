@@ -148,7 +148,6 @@ h3{
     padding: 0px;
     line-height: 1;
     border-radius: 5px;
-    background-color:var(--bright-green);
   }
   mark.animation{
     animation-name: hightlight;
@@ -201,9 +200,6 @@ h3{
 
   .gallery_section.animation {
     animation-name: slide-in-left;
-    animation-duration: 1s;  
-    animation-fill-mode: both;
-    animation-delay: 0s;
   }
 
   #gallery img.animation{
@@ -250,21 +246,15 @@ width: 105px;}
 
 .testimonials_section.animation {
   animation-name: slide-in-left;
-  animation-duration: 1s;  
-  animation-fill-mode: both;
   animation-delay: 0s;
 } 
 
 .testimonials_section.animation h3{
   animation-name: slide-in-right;
-  animation-duration: 1s;  
-  animation-fill-mode: both;
   animation-delay: 1s
 }
 .testimonials_section.animation .card{
   animation-name: slide-in-botton;
-  animation-duration: 1s;  
-  animation-fill-mode: both;
   animation-delay: 1s;
 }
 
@@ -278,9 +268,6 @@ position: relative;
 }
 .contact_section.animation{
   animation-name: slide-in-right;
-  animation-duration: 1s;  
-  animation-fill-mode: both;
-  animation-delay: 1s
 }
 .contact_section a i{
   font-size: 40px;
