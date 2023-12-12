@@ -8,7 +8,7 @@ entries.forEach((entry)=>{
         entry.target.classList.remove("animation")
     }
 })
-},{threshold:0.75});
+},{threshold:0.5});
 
 const observer25 =new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{

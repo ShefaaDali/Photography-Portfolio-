@@ -80,6 +80,9 @@ h3{
 
 }
 /*start about section*/
+.home_section{
+  overflow: hidden;
+}
  #HomeText{
   width: 75%;
  }
@@ -131,13 +134,12 @@ h3{
     background-color: var(--light-gray);
     position: relative;
     animation-name: slide-out-left;
-    animation-duration: 0.5s;  
-    animation-delay: 0.75s;
+    animation-duration: 1s;  
+    animation-delay: 0s;
     animation-fill-mode: both;
   }
   .about_section.animation{
     animation-name: slide-in-left;
-    animation-delay: 0.5s;
   }
   mark{
     /* display: inline-block; */
@@ -151,7 +153,7 @@ h3{
   mark.animation{
     animation-name: hightlight;
     animation-duration: 3s;  
-    animation-delay:0.75s;
+    animation-delay:0.25s;
     animation-fill-mode: both;
   }
   /*end about section*/
@@ -183,7 +185,7 @@ h3{
        -ms-user-select: none; /* IE 10 and IE 11 */
        user-select: none; /* Standard syntax */
        animation-name: fade-out;
-       animation-duration: 1.25s;  
+       animation-duration: 1;  
        animation-fill-mode: both;
        animation-delay: 0s;
   }
@@ -199,17 +201,11 @@ h3{
 
   .gallery_section.animation {
     animation-name: slide-in-left;
-    animation-duration: 2s;  
+    animation-duration: 1s;  
     animation-fill-mode: both;
     animation-delay: 0s;
   }
 
-    /* .gallery_section.animation #gallery{
-    animation-name: slide-in-up;
-    animation-duration: 2s;  
-    animation-fill-mode: both;
-    animation-delay: 0s;
-  } */
   #gallery img.animation{
     animation-name: fade-in;
     animation-duration: 1.25s;  
@@ -270,4 +266,36 @@ width: 105px;}
   animation-duration: 1s;  
   animation-fill-mode: both;
   animation-delay: 1s;
+}
+
+/*start contact_section */
+.contact_section{
+position: relative;
+  animation-name: slide-out-right;
+  animation-duration: 1s;  
+  animation-fill-mode: both;
+  animation-delay: 1s
+}
+.contact_section.animation{
+  animation-name: slide-in-right;
+  animation-duration: 1s;  
+  animation-fill-mode: both;
+  animation-delay: 1s
+}
+.contact_section a i{
+  font-size: 40px;
+  padding: 10px;
+  color: var(--dark-green);
+  text-shadow: 1px 1px 3px var(--green-color);
+}
+.contact_section a:hover i{
+  text-shadow: 2px 2px 3px var(--green-color);
+  transition: 0.5s;
+}
+/*end contact_section */
+
+/*start footer*/
+footer{
+  background-color: var(--dark-green);
+  color: var(--light-gray);
 }
