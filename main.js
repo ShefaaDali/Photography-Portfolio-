@@ -1,4 +1,5 @@
-/*show animation on srcoll*/
+if(!window.matchMedia("(prefers-reduced-motion)").matches){
+    /*show animation on srcoll*/
 const observer =new IntersectionObserver((entries)=>{
 entries.forEach((entry)=>{
     console.log(entry)
@@ -8,21 +9,11 @@ entries.forEach((entry)=>{
         entry.target.classList.remove("animation")
     }
 })
-},{threshold:0.5});
+},{threshold:0.35});
 
-const observer25 =new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
-        console.log(entry)
-        if(entry.isIntersecting){
-            entry.target.classList.add("animation")
-        }else{
-            entry.target.classList.remove("animation")
-        }
-    })
-    },{threshold:0.25});
  document.querySelectorAll("section").forEach((e)=>observer.observe(e))
  document.querySelectorAll("mark").forEach((e)=>observer.observe(e))
-document.querySelectorAll("#gallery img").forEach((e)=>observer25.observe(e))
+document.querySelectorAll("#gallery img").forEach((e)=>observer.observe(e))
 
 /*Home Section */
 function typingAnimation(text,querySelector,i){
@@ -34,7 +25,11 @@ function typingAnimation(text,querySelector,i){
 
 typingAnimation("Welcome to shefaa's Creative World!","#HomeText span",0)
 typingAnimation(` Capturing moments, telling stories, and bringing emotions to life through the lens. Explore the world of visual artistry and discover the magic in every frame.`,"#HomeText p",0)
-     
+}else{
+    document.querySelector("#HomeText span").innerHTML ="Welcome to shefaa's Creative World!";
+    document.querySelector("#HomeText p").innerHTML =` Capturing moments, telling stories, and bringing emotions to life through the lens. Explore the world of visual artistry and discover the magic in every frame.`;
+
+}
 /*gallary section*/
 
 const max=window.innerWidth /2;

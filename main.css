@@ -11,27 +11,30 @@ body{
 section{
   padding-top: 50px; 
   padding-bottom: 50px;
+  overflow-x: hidden;
 }
 h3{
   color: var(--dark-green);
   position: relative;
 } 
 /*keyframes*/
+@media not (prefers-reduced-motion){
+
 @keyframes slide-in-right {
-  from{right: -100px; opacity: 0;}
+  from{right: -50px; opacity: 0;}
   to{right: 0px; opacity: 1; }
 }
 @keyframes slide-out-right {
   from{right: 0px; opacity: 1;}
-  to{right: -100px; opacity: 0; }
+  to{right: -50px; opacity: 0; }
 }
 @keyframes slide-in-left{
-  from{left: -100px; opacity: 0;}
+  from{left: -50px; opacity: 0;}
   to{left: 0px; opacity: 1; }
 }
 @keyframes slide-out-left{
   from{left: 0; opacity: 1;}
-  to{left: -100px; opacity: 0; }
+  to{left: -50px; opacity: 0; }
 }
 @keyframes slide-in-botton{
   from{bottom: -100px; opacity: 0;}
@@ -79,9 +82,10 @@ h3{
   100%{transform: translate(0px, 0px) }
 
 }
+
+}
 /*start about section*/
 .home_section{
-  overflow: hidden;
 }
  #HomeText{
   width: 75%;
@@ -148,6 +152,7 @@ h3{
     padding: 0px;
     line-height: 1;
     border-radius: 5px;
+    background-color: var(--bright-green);
   }
   mark.animation{
     animation-name: hightlight;
@@ -161,7 +166,6 @@ h3{
   .gallery_section{
     margin: 0;
     padding-top: 50px;
-    overflow-x: hidden;
     position: relative;
     animation-name: slide-out-left;
     animation-duration: 1s;  
@@ -187,6 +191,7 @@ h3{
        animation-duration: 1;  
        animation-fill-mode: both;
        animation-delay: 0s;
+       animation-timing-function: ease;
   }
   .arrow_svg{
     position: relative;
@@ -261,13 +266,13 @@ width: 105px;}
 /*start contact_section */
 .contact_section{
 position: relative;
-  animation-name: slide-out-right;
+  animation-name: fade-out;
   animation-duration: 1s;  
   animation-fill-mode: both;
   animation-delay: 1s
 }
 .contact_section.animation{
-  animation-name: slide-in-right;
+  animation-name: fade-in;
 }
 .contact_section a i{
   font-size: 40px;
