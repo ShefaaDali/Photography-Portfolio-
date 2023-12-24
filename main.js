@@ -13,7 +13,6 @@ entries.forEach((entry)=>{
 
  document.querySelectorAll("section").forEach((e)=>observer.observe(e))
  document.querySelectorAll("mark").forEach((e)=>observer.observe(e))
-document.querySelectorAll("#gallery img").forEach((e)=>observer.observe(e))
 
 /*Home Section */
 function typingAnimation(text,querySelector,i){
