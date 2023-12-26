@@ -1,4 +1,4 @@
-body{
+body,section{
   overflow-x: hidden;
 }
 :root{
@@ -85,8 +85,6 @@ h3{
 
 }
 /*start about section*/
-.home_section{
-}
  #HomeText{
   width: 75%;
  }
@@ -138,7 +136,7 @@ h3{
     background-color: var(--light-gray);
     position: relative;
     animation-name: slide-out-left;
-    animation-duration: 1s;  
+    animation-duration: 1.5s;  
     animation-delay: 0s;
     animation-fill-mode: both;
   }
@@ -167,10 +165,12 @@ h3{
     margin: 0;
     padding-top: 50px;
     position: relative;
-    animation-name: slide-out-left;
-    animation-duration: 1s;  
+    animation-name: slide-out-right;
+    animation-duration: 1.5s;  
     animation-fill-mode: both;
     animation-delay: 0s;
+    width: calc(100% - 50px);
+
   }
   
   #gallery{
@@ -199,7 +199,8 @@ h3{
   }
 
   .gallery_section.animation {
-    animation-name: slide-in-left;
+    width: 100%;
+    animation-name: slide-in-right;
   }
   
     /*end gallery section*/
@@ -209,7 +210,7 @@ h3{
   background-color: var(--light-gray);
   position: relative;
   animation-name: slide-out-left;
-  animation-duration: 1s;  
+  animation-duration: 1.5s;  
   animation-fill-mode: both;
   animation-delay: 0.5s;
   
